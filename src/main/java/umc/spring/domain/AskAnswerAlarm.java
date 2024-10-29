@@ -30,6 +30,6 @@ public class AskAnswerAlarm extends BaseEntity {
     private ConfirmStatus confirm;
 
     @OneToOne
-    @PrimaryKeyJoinColumn(name="answer_id")
+    @JoinColumn(name="answer_id")
     private AskAnswer askAnswer;
 }

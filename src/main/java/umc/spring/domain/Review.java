@@ -35,6 +35,6 @@ public class Review extends BaseEntity {
     private Store store;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn(name = "answer_id")
     private ReviewAnswer reviewAnswer;
 }

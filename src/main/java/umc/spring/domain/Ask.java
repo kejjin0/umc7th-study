@@ -32,6 +32,6 @@ public class Ask extends BaseEntity {
     private AskStatus askStatus;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn(name = "answer_id")
     private AskAnswer askAnswer;
 }

@@ -24,6 +24,10 @@ public class Ask extends BaseEntity {
     @Column(nullable = false,length = 500)
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<AskImage> askImageList = new ArrayList<>();
 

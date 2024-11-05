@@ -23,6 +23,9 @@ public class Review extends BaseEntity {
     @Column(nullable = false, length = 500)
     private String description;
 
+    @Column(nullable = false)
+    private Integer stars;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
@@ -37,4 +40,15 @@ public class Review extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn(name = "answer_id")
     private ReviewAnswer reviewAnswer;
+
+    @Override
+    public String toString() {
+        return "Review {" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", stars=" + stars +
+                ", member=" + member +
+                "}";
+    }
 }

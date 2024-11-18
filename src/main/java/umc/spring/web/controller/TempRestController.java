@@ -1,4 +1,4 @@
-package umc.spring.web.controller.MemberController;
+package umc.spring.web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

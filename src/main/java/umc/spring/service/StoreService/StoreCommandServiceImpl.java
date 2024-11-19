@@ -22,9 +22,9 @@ public class StoreCommandServiceImpl implements StoreCommandService {
     @Transactional
     public Store addStore(StoreRequestDTO.AddStoreDTO request){
         Store newStore = StoreConverter.ToStore(request);
-        Region Region = regionRepository.findById(request.getRegion())
+        Region region = regionRepository.findById(request.getRegion())
                 .orElseThrow(() -> new RegionHandler(ErrorStatus.REGION_NOT_FOUND));
-
+        newStore.setRegion(region);
         return storeRepository.save(newStore);
     }
 }

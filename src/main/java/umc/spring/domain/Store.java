@@ -28,7 +28,6 @@ public class Store extends BaseEntity {
     @Column(nullable = false, length = 50)
     private String address;
 
-    @ColumnDefault("0")
     private Float score;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -50,5 +49,11 @@ public class Store extends BaseEntity {
                 ", score=" + score +
                 ", region=" + (region != null ? region.getName() : "N/A") +
                 '}';
+    }
+
+    public void setRegion(Region region) {
+        if(region != null) {
+            this.region = region;
+        }
     }
 }

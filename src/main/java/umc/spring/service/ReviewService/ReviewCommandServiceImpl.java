@@ -3,6 +3,7 @@ package umc.spring.service.ReviewService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.StoreHandler;
@@ -24,6 +25,7 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
     private final StoreRepository storeRepository;
 
     @Override
+    @Transactional
     public Review addReview(@RequestBody @Valid ReviewRequestDTO.AddReviewDto request){
         Review newReview = ReviewConvert.toReview(request);
         Member member = memberRepository.findById(request.getMember())

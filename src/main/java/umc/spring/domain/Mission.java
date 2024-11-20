@@ -44,4 +44,9 @@ public class Mission extends BaseEntity {
             this.store=store;
         }
     }
+
+    @Override
+    public String toString() {
+        return "mission" + id + "name" + reward + "price" + price + "deadline" + deadline + "missionSpec" + missionSpec;
+    }
 }

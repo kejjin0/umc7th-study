@@ -24,6 +24,12 @@ public class QMember extends EntityPathBase<Member> {
 
     public final StringPath address = createString("address");
 
+    public final NumberPath<Integer> birthyDay = createNumber("birthyDay", Integer.class);
+
+    public final NumberPath<Integer> birthyMonth = createNumber("birthyMonth", Integer.class);
+
+    public final NumberPath<Integer> birthyYear = createNumber("birthyYear", Integer.class);
+
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
 

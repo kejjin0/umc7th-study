@@ -3,6 +3,8 @@ package umc.spring.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import umc.spring.domain.Member;
+import umc.spring.dto.MemberRequestDto;
 import umc.spring.dto.MypageDto;
 import umc.spring.repository.MemberRepository.MemberRepository;
 
@@ -20,4 +22,10 @@ public class MemberQueryServiceImpl implements MemberQueryService {
         myPageMember.forEach(MyPageDto -> System.out.println("myPage member : " + MyPageDto));
         return myPageMember;
     }
+
+    @Override
+    public Member joinMember(MemberRequestDto.JoinDto request) {
+        return null;
+    }
+
 }

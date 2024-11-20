@@ -26,7 +26,7 @@ public class MemberRequestDto {
         String address;
         @Size(min=5, max=12)
         String specAddress;
-        //        String nickname;
+//        String nickname;
         @ExistCategories
         List<Long> preferCategory;
     }

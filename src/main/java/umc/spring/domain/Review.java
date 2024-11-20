@@ -2,6 +2,8 @@ package umc.spring.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -50,5 +54,17 @@ public class Review extends BaseEntity {
                 ", stars=" + stars +
                 ", member=" + member +
                 "}";
+    }
+
+    public void setStore(Store store) {
+        if(store != null) {
+            this.store = store;
+        }
+    }
+
+    public void setMember(Member member) {
+        if(member != null) {
+            this.member = member;
+        }
     }
 }

@@ -22,11 +22,11 @@ public class MemberConverter {
             case 1:
                 gender=Gender.MALE;
                 break;
-            case 2:
-                gender = Gender.FEMALE;
-                break;
-            case 3:
-                gender = Gender.NONE;
+                case 2:
+                    gender = Gender.FEMALE;
+                    break;
+                    case 3:
+                        gender = Gender.NONE;
         }
         return Member.builder()
                 .address(request.getAddress())

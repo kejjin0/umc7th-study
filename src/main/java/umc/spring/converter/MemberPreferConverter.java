@@ -14,6 +14,6 @@ public class MemberPreferConverter {
                         MemberPrefer.builder()
                                 .foodCategory(foodCategory)
                                 .build()
-                ).collect(Collectors.toList());
+                                ).collect(Collectors.toList());
     }
 }

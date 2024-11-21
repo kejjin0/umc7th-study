@@ -16,7 +16,7 @@ public class ReviewRequestDTO {
         String description;
         @Min(1) @Max(5)
         @NotNull
-        Integer stars;
+        Float stars;
         @ExistMembers
         Long member;
         @ExistStores

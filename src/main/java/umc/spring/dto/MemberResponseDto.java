@@ -41,4 +41,28 @@ public class MemberResponseDto {
         String description;
         LocalDateTime createdAt;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ChanllengingMissionPreViewListDTO{
+        List<ChanllengingMissionPreviewDTO> missionList;
+        Integer listSize;
+        Integer totalPages;
+        Long totalElements;
+        Boolean isFirst;
+        Boolean isLast;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ChanllengingMissionPreviewDTO{
+        String storeName;
+        Integer price;
+        Integer rewards;
+        Integer percentage;
+    }
 }

@@ -2,8 +2,10 @@ package umc.spring.converter;
 
 import org.springframework.data.domain.Page;
 import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
 import umc.spring.domain.enums.Gender;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.dto.MemberRequestDto;
 import umc.spring.dto.MemberResponseDto;
 
@@ -64,6 +66,34 @@ public class MemberConverter {
                 .totalElements(reviewList.getTotalElements())
                 .listSize(memberReviewPreViewDTOList.size())
                 .reviewList(memberReviewPreViewDTOList)
+                .build();
+    }
+
+    public static MemberResponseDto.ChanllengingMissionPreviewDTO chanllengingMissionPreviewDTO(MemberMission memberMission){
+        Mission mission = memberMission.getMission();
+        Integer price = mission.getPrice();
+        Integer reward = mission.getReward();
+        float percentage = (float) reward /price * 100;
+
+        return MemberResponseDto.ChanllengingMissionPreviewDTO.builder()
+                .storeName(mission.getStore().getName())
+                .price(price)
+                .rewards(reward)
+                .percentage((int)percentage)
+                .build();
+    }
+
+    public static MemberResponseDto.ChanllengingMissionPreViewListDTO chanllengingMissionPreViewListDTO(Page<MemberMission> missionList){
+        List<MemberResponseDto.ChanllengingMissionPreviewDTO> chanllengingMissionPreviewDTOList = missionList.stream()
+                .map(MemberConverter::chanllengingMissionPreviewDTO).collect(Collectors.toList());
+
+        return MemberResponseDto.ChanllengingMissionPreViewListDTO.builder()
+                .isLast(missionList.isLast())
+                .isFirst(missionList.isFirst())
+                .totalPages(missionList.getTotalPages())
+                .totalElements(missionList.getTotalElements())
+                .listSize(chanllengingMissionPreviewDTOList.size())
+                .missionList(chanllengingMissionPreviewDTOList)
                 .build();
     }
 }

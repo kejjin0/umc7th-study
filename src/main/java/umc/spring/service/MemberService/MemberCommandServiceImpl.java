@@ -11,10 +11,14 @@ import umc.spring.converter.MemberConverter;
 import umc.spring.converter.MemberPreferConverter;
 import umc.spring.domain.FoodCategory;
 import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
+import umc.spring.domain.enums.MissionStatus;
+import umc.spring.domain.mapping.MemberMission;
 import umc.spring.domain.mapping.MemberPrefer;
 import umc.spring.dto.MemberRequestDto;
 import umc.spring.repository.FoodCategoryRepository.FoodCategoryRepository;
+import umc.spring.repository.MemberMissionRepository.MemberMissionRepository;
 import umc.spring.repository.MemberRepository.MemberRepository;
 import umc.spring.repository.ReviewRepository.ReviewRepository;
 
@@ -27,6 +31,7 @@ public class MemberCommandServiceImpl implements MemberCommandService{
  private final MemberRepository memberRepository;
  private final FoodCategoryRepository foodCategoryRepository;
  private final ReviewRepository reviewRepository;
+ private final MemberMissionRepository memberMissionRepository;
 
  @Override
  @Transactional
@@ -49,4 +54,12 @@ public class MemberCommandServiceImpl implements MemberCommandService{
      Page<Review> reviewPage = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
      return reviewPage;
  }
+
+    @Override
+    public Page<MemberMission> getChallengeMissionList(Long memberId, Integer page) {
+        Member member = memberRepository.findById(memberId).get();
+
+        Page<MemberMission> missionPage = memberMissionRepository.findAllByMemberAndStatus(member, MissionStatus.CHALLENGING, PageRequest.of(page, 10));
+        return missionPage;
+    }
 }

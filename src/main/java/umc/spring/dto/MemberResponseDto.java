@@ -64,5 +64,16 @@ public class MemberResponseDto {
         Integer price;
         Integer rewards;
         Integer percentage;
+        Long memberMissionId;
+    }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class modifyMemberMissionStatusDTO{
+        Long missionId;
+        String status;
+        LocalDateTime updatedAt;
     }
 }

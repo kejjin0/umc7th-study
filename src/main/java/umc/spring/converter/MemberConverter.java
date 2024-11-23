@@ -80,6 +80,7 @@ public class MemberConverter {
                 .price(price)
                 .rewards(reward)
                 .percentage((int)percentage)
+                .memberMissionId(memberMission.getId())
                 .build();
     }
 
@@ -94,6 +95,13 @@ public class MemberConverter {
                 .totalElements(missionList.getTotalElements())
                 .listSize(chanllengingMissionPreviewDTOList.size())
                 .missionList(chanllengingMissionPreviewDTOList)
+                .build();
+    }
+
+    public static MemberResponseDto.modifyMemberMissionStatusDTO modifyMemberMissionStatusDTO(MemberMission memberMission){
+        return MemberResponseDto.modifyMemberMissionStatusDTO.builder()
+                .missionId(memberMission.getMission().getId())
+                .updatedAt(LocalDateTime.now())
                 .build();
     }
 }

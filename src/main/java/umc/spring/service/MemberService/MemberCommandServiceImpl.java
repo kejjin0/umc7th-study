@@ -62,4 +62,11 @@ public class MemberCommandServiceImpl implements MemberCommandService{
         Page<MemberMission> missionPage = memberMissionRepository.findAllByMemberAndStatus(member, MissionStatus.CHALLENGING, PageRequest.of(page, 10));
         return missionPage;
     }
+
+    @Override
+    public MemberMission modifyMemberMissionStatus(Long memberMissionId) {
+        MemberMission memberMission = memberMissionRepository.findById(memberMissionId).get();
+        memberMission.setStatus(MissionStatus.COMPLETED);
+        return memberMissionRepository.save(memberMission);
+    }
 }

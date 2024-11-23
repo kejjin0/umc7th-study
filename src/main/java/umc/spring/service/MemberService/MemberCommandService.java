@@ -13,4 +13,6 @@ public interface MemberCommandService {
     Page<Review> getMemberReviewList(Long memberId, Integer page);
 
     Page<MemberMission> getChallengeMissionList(Long missionId, Integer page);
+
+    MemberMission modifyMemberMissionStatus(Long memberMissionId);
 }

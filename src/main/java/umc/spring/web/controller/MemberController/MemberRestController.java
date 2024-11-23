@@ -21,6 +21,7 @@ import umc.spring.service.MemberService.MemberCommandService;
 import umc.spring.service.ReviewService.ReviewCommandService;
 import umc.spring.validation.annotation.CheckPage;
 import umc.spring.validation.annotation.ExistMembers;
+import umc.spring.validation.annotation.NotExistMemberMission;
 
 @RestController
 @RequiredArgsConstructor
@@ -64,5 +65,21 @@ public class MemberRestController {
     public ApiResponse<MemberResponseDto.ChanllengingMissionPreViewListDTO> getChanllengeMissionList(@ExistMembers @PathVariable(name="memberId") Long memberId, @CheckPage @RequestParam(name="page")Integer page){
         Page<MemberMission> memberMissionList = memberCommandService.getChallengeMissionList(memberId, page);
         return ApiResponse.onSuccess(MemberConverter.chanllengingMissionPreViewListDTO(memberMissionList));
+    }
+
+    @GetMapping("/member/missions/{memberMissionId}")
+    @Operation(summary = "특정 멤버가 진행 중인 미션 진행 완료로 수정 API", description = "특정 멤버가 진행 중인 미션을 진행 완료로 수정하는 API입니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공"),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH003", description = "access 토큰을 주세요.", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH004", description = "access 토큰 만료", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006", description = "access 토큰 모양이 이상함", content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+    })
+    @Parameters({
+            @Parameter(name="memberMissionId", description = "멤버의 미션 아이디, path variable입니다1")
+    })
+    public ApiResponse<MemberResponseDto.modifyMemberMissionStatusDTO> modifyMemberMissionStatus(@NotExistMemberMission @PathVariable(name="memberMissionId") Long memberMissoinId){
+        MemberMission memberMission = memberCommandService.modifyMemberMissionStatus(memberMissoinId);
+        return ApiResponse.onSuccess(MemberConverter.modifyMemberMissionStatusDTO(memberMission));
     }
 }

@@ -52,7 +52,7 @@ public class MemberRestController {
         return ApiResponse.onSuccess(MemberConverter.memberReviewPreviewListDTO(reviewList));
     }
 
-    @GetMapping("/{memberId}/missions/chanllenging")
+    @GetMapping("/{memberId}/missions/challenging")
     @Operation(summary="특정 멤버가 진행 중인 미션 목록 조회 API", description = "특정 멤버가 진행 중인 미션 목록을 조회하는 API이며, 페이징을 포함합니다. query String으로 page 번호를 주세요")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공"),

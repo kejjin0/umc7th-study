@@ -17,11 +17,12 @@ public class PageCheckValidator implements ConstraintValidator<CheckPage, Intege
 
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
-        boolean isValid = value > 0;
+        boolean isValid = value >= 0;
         if(!isValid) {
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate(ErrorStatus.OUT_OF_PAGE_INDEX.toString()).addConstraintViolation();
         }
+        System.out.println("page ccccccccccccccccccccccccccc : " + value);
         return isValid;
     }
 }

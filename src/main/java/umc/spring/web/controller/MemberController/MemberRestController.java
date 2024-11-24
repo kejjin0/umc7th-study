@@ -46,7 +46,8 @@ public class MemberRestController {
     @Parameters({
             @Parameter(name="memberId", description = "멤버의 아이디, path variable입니다1")
     })
-    public ApiResponse<MemberResponseDto.MemberReviewPreviewListDTO> getMemberReviewList(@ExistMembers @PathVariable(name="memberId") Long memberId, @CheckPage @RequestParam(name="page")Integer page){
+    public ApiResponse<MemberResponseDto.MemberReviewPreviewListDTO> getMemberReviewList(@ExistMembers @PathVariable(name="memberId") Long memberId, @CheckPage Integer page){
+        // argument resolver와 @RequestParam은 함꼐 작동되지 않아 argument resolver가 실행되도록 @CheckPage 어노테이션만 작성함.
         Page<Review> reviewList = memberCommandService.getMemberReviewList(memberId, page);
         return ApiResponse.onSuccess(MemberConverter.memberReviewPreviewListDTO(reviewList));
     }
@@ -62,7 +63,8 @@ public class MemberRestController {
     @Parameters({
             @Parameter(name="memberId", description = "멤버의 아이디, path variable입니다1")
     })
-    public ApiResponse<MemberResponseDto.ChanllengingMissionPreViewListDTO> getChanllengeMissionList(@ExistMembers @PathVariable(name="memberId") Long memberId, @CheckPage @RequestParam(name="page")Integer page){
+    public ApiResponse<MemberResponseDto.ChanllengingMissionPreViewListDTO> getChanllengeMissionList(@ExistMembers @PathVariable(name="memberId") Long memberId, @CheckPage Integer page){
+        // argument resolver와 @RequestParam은 함꼐 작동되지 않아 argument resolver가 실행되도록 @CheckPage 어노테이션만 작성함.
         Page<MemberMission> memberMissionList = memberCommandService.getChallengeMissionList(memberId, page);
         return ApiResponse.onSuccess(MemberConverter.chanllengingMissionPreViewListDTO(memberMissionList));
     }

@@ -53,7 +53,8 @@ public class StoreRestController {
     @Parameters({
             @Parameter(name="storeId", description = "가게의 아이디, path variable입니다.")
     })
-    public ApiResponse<StoreResponseDTO.StoreMissionListDTO> getMissionList(@ExistStores @PathVariable(name="storeId") Long storeId,@CheckPage @RequestParam(name="page") Integer page){
+    public ApiResponse<StoreResponseDTO.StoreMissionListDTO> getMissionList(@ExistStores @PathVariable(name="storeId") Long storeId, @CheckPage Integer page){
+        // argument resolver와 @RequestParam은 함꼐 작동되지 않아 argument resolver가 실행되도록 @CheckPage 어노테이션만 작성함.
         Page<Mission> missionList = storeQueryService.getMissionList(storeId, page);
         return ApiResponse.onSuccess(StoreConverter.missionListDTO(missionList));
     }

@@ -22,6 +22,7 @@ import umc.spring.repository.MemberMissionRepository.MemberMissionRepository;
 import umc.spring.repository.MemberRepository.MemberRepository;
 import umc.spring.repository.ReviewRepository.ReviewRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,6 +68,7 @@ public class MemberCommandServiceImpl implements MemberCommandService{
     public MemberMission modifyMemberMissionStatus(Long memberMissionId) {
         MemberMission memberMission = memberMissionRepository.findById(memberMissionId).get();
         memberMission.setStatus(MissionStatus.COMPLETED);
+        memberMission.setUpdatedAt(LocalDateTime.now());
         return memberMissionRepository.save(memberMission);
     }
 }

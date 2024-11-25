@@ -17,6 +17,8 @@ import umc.spring.domain.Review;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.dto.MemberRequestDto;
 import umc.spring.dto.MemberResponseDto;
+import umc.spring.service.MemberMissionService.MemberMissionCommandService;
+import umc.spring.service.MemberMissionService.MemberMissionCommandServiceImpl;
 import umc.spring.service.MemberService.MemberCommandService;
 import umc.spring.service.ReviewService.ReviewCommandService;
 import umc.spring.validation.annotation.CheckPage;
@@ -28,6 +30,7 @@ import umc.spring.validation.annotation.NotExistMemberMission;
 @RequestMapping("/members")
 public class MemberRestController {
     private final MemberCommandService memberCommandService;
+    private final MemberMissionCommandService memberMissionCommandService;
 
     @PostMapping("/")
     public ApiResponse<MemberResponseDto.JoinResultDTO> join(@RequestBody @Valid MemberRequestDto.JoinDto request){
@@ -69,7 +72,7 @@ public class MemberRestController {
         return ApiResponse.onSuccess(MemberConverter.chanllengingMissionPreViewListDTO(memberMissionList));
     }
 
-    @GetMapping("/member/missions/{memberMissionId}")
+    @PatchMapping("/member/missions/{memberMissionId}")
     @Operation(summary = "특정 멤버가 진행 중인 미션 진행 완료로 수정 API", description = "특정 멤버가 진행 중인 미션을 진행 완료로 수정하는 API입니다.")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공"),

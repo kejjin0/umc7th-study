@@ -5,6 +5,7 @@ import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
 import umc.spring.domain.enums.Gender;
+import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.dto.MemberRequestDto;
 import umc.spring.dto.MemberResponseDto;
@@ -101,7 +102,8 @@ public class MemberConverter {
     public static MemberResponseDto.modifyMemberMissionStatusDTO modifyMemberMissionStatusDTO(MemberMission memberMission){
         return MemberResponseDto.modifyMemberMissionStatusDTO.builder()
                 .missionId(memberMission.getMission().getId())
-                .updatedAt(LocalDateTime.now())
+                .updatedAt(memberMission.getUpdatedAt())
+                .status(memberMission.getStatus().toString())
                 .build();
     }
 }

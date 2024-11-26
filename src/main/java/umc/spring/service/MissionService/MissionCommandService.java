@@ -1,8 +1,7 @@
 package umc.spring.service.MissionService;
 
-import org.springframework.stereotype.Service;
 import umc.spring.domain.Mission;
-import umc.spring.dto.MissionDTO.MissionRequestDTO;
+import umc.spring.web.dto.MissionDTO.MissionRequestDTO;
 
 public interface MissionCommandService {
     Mission addMission(MissionRequestDTO.AddMissionDto request);

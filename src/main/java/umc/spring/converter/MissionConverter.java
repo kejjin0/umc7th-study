@@ -1,10 +1,9 @@
 package umc.spring.converter;
 
 import umc.spring.domain.Mission;
-import umc.spring.dto.MissionDTO.MissionRequestDTO;
-import umc.spring.dto.MissionDTO.MissionResponseDTO;
+import umc.spring.web.dto.MissionDTO.MissionRequestDTO;
+import umc.spring.web.dto.MissionDTO.MissionResponseDTO;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class MissionConverter {

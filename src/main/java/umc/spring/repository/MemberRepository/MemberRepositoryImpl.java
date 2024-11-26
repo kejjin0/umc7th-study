@@ -1,18 +1,11 @@
 package umc.spring.repository.MemberRepository;
 
-import com.querydsl.core.types.dsl.Expressions;
-import com.querydsl.jpa.JPAExpressions;
-import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import umc.spring.domain.QMember;
-import umc.spring.domain.QMission;
-import umc.spring.domain.enums.MissionStatus;
-import umc.spring.domain.mapping.MemberMission;
-import umc.spring.domain.mapping.QMemberMission;
-import umc.spring.dto.MypageDto;
-import umc.spring.dto.QMypageDto;
+import umc.spring.web.dto.MypageDto;
+import umc.spring.web.dto.QMypageDto;
 
 import java.util.List;
 

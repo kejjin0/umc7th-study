@@ -1,8 +1,8 @@
 package umc.spring.service.MissionService;
 
 import umc.spring.domain.enums.MissionStatus;
-import umc.spring.dto.RegionMissionDto;
-import umc.spring.dto.UserMissionDto;
+import umc.spring.web.dto.RegionMissionDto;
+import umc.spring.web.dto.UserMissionDto;
 
 import java.util.List;
 

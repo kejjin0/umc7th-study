@@ -1,8 +1,8 @@
 package umc.spring.converter;
 
 import umc.spring.domain.Review;
-import umc.spring.dto.ReviewDTO.ReviewRequestDTO;
-import umc.spring.dto.ReviewDTO.ReviewResponseDTO;
+import umc.spring.web.dto.ReviewDTO.ReviewRequestDTO;
+import umc.spring.web.dto.ReviewDTO.ReviewResponseDTO;
 
 import java.time.LocalDateTime;
 

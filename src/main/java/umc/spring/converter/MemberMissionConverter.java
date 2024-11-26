@@ -2,8 +2,8 @@ package umc.spring.converter;
 
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
-import umc.spring.dto.MemberMissionDTO.MemberMissionRequestDTO;
-import umc.spring.dto.MemberMissionDTO.MemberMissionResponseDTO;
+import umc.spring.web.dto.MemberMissionDTO.MemberMissionRequestDTO;
+import umc.spring.web.dto.MemberMissionDTO.MemberMissionResponseDTO;
 
 import java.time.LocalDateTime;
 

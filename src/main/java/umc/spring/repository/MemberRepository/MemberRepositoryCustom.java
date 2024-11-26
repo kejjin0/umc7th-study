@@ -1,6 +1,6 @@
 package umc.spring.repository.MemberRepository;
 
-import umc.spring.dto.MypageDto;
+import umc.spring.web.dto.MypageDto;
 
 import java.util.List;
 

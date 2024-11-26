@@ -5,16 +5,15 @@ import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
-import org.apache.el.parser.BooleanNode;
 import org.springframework.stereotype.Repository;
 import umc.spring.domain.QMission;
 import umc.spring.domain.QStore;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.QMemberMission;
-import umc.spring.dto.QRegionMissionDto;
-import umc.spring.dto.QUserMissionDto;
-import umc.spring.dto.RegionMissionDto;
-import umc.spring.dto.UserMissionDto;
+import umc.spring.web.dto.QRegionMissionDto;
+import umc.spring.web.dto.QUserMissionDto;
+import umc.spring.web.dto.RegionMissionDto;
+import umc.spring.web.dto.UserMissionDto;
 
 import java.util.List;
 

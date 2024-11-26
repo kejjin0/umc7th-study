@@ -1,4 +1,4 @@
-package umc.spring.dto.MissionDTO;
+package umc.spring.web.dto.ReviewDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-public class MissionResponseDTO {
+public class ReviewResponseDTO {
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class AddMissionResultDTO {
-        Long missionId;
+    public static class AddReviewDTO{
+        Long reviewId;
         LocalDateTime createdAt;
     }
 }

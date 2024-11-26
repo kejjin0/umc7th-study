@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.domain.enums.MissionStatus;
-import umc.spring.dto.RegionMissionDto;
-import umc.spring.dto.UserMissionDto;
+import umc.spring.web.dto.RegionMissionDto;
+import umc.spring.web.dto.UserMissionDto;
 import umc.spring.repository.MissionRepository.MissionRepository;
 
 import java.util.List;

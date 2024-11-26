@@ -1,4 +1,4 @@
-package umc.spring.dto.MemberMissionDTO;
+package umc.spring.web.dto.MemberMissionDTO;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

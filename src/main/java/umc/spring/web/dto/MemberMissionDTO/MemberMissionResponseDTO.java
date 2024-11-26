@@ -1,4 +1,4 @@
-package umc.spring.dto.MemberMissionDTO;
+package umc.spring.web.dto.MemberMissionDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

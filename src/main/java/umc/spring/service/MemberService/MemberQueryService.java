@@ -1,8 +1,8 @@
 package umc.spring.service.MemberService;
 
 import umc.spring.domain.Member;
-import umc.spring.dto.MemberRequestDto;
-import umc.spring.dto.MypageDto;
+import umc.spring.web.dto.MemberDTO.MemberRequestDto;
+import umc.spring.web.dto.MypageDto;
 
 import java.util.List;
 

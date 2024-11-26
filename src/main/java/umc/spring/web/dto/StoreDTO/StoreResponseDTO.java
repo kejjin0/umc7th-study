@@ -1,4 +1,4 @@
-package umc.spring.dto.StoreDTO;
+package umc.spring.web.dto.StoreDTO;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;

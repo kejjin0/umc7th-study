@@ -4,8 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.domain.Member;
-import umc.spring.dto.MemberRequestDto;
-import umc.spring.dto.MypageDto;
+import umc.spring.web.dto.MemberDTO.MemberRequestDto;
+import umc.spring.web.dto.MypageDto;
 import umc.spring.repository.MemberRepository.MemberRepository;
 
 import java.util.List;

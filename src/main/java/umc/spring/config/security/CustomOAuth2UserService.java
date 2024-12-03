@@ -31,9 +31,15 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         Map<String, Object> attributes = oAuth2User.getAttributes();
         Map<String, Object> properties = (Map<String, Object>) attributes.get("properties");
 
-        String nickname = (String) properties.get("nickname");
-        String email = nickname + "@kakao.com";
+        // 카카오 로그인
+//        String nickname = (String) properties.get("nickname");
+//        String email = nickname + "@kakao.com";
 
+        // 구글로 로그인
+        String email = oAuth2User.getAttributes().get("email").toString();
+        String nickname = oAuth2User.getAttributes().get("name").toString();
+//        String email = (String) properties.get("email");
+//        String nickname = (String) properties.get("name");
         Member member = saveOrUpdateUser(email,nickname);
 
         Map<String, Object> modifiedAttributes = new HashMap<>(attributes);
@@ -55,9 +61,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
                         .gender(Gender.NONE)
                         .address("소셜로그인")
                         .specAddress("소셜로그인")
-                        .birthyYear(2011)
-                        .birthyMonth(11)
-                        .birthyDay(11)
+                        .birthyYear(2009)
+                        .birthyMonth(9)
+                        .birthyDay(9)
                         .role(Role.USER)
                         .build());
         return memberRepository.save(member);

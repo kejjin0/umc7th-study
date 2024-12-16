@@ -4,38 +4,38 @@ on:
   push:
     branches: [ develop ]
 
-  jobs:
-    build:
-      runs-on: ubuntu-latest # (3).OS환경
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v3  # 저장소 코드 체크아웃
+    steps:
+      - uses: actions/checkout@v3  # 저장소 코드 체크아웃
 
-        - name: Set up JDK 17
-          users: actions/setup-java@v3
-          with:
-            distribution: 'temurin'
-            java-version: '17'
+      - name: Set up JDK 17  # Java 개발 킷 설정
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-        - name: Make application.yml
-          run: |
-            cd ./src/main/resources
-            echo "${{ secrets.APPLICATION_YML }}" > ./application.yml
-            shell: bash
+      - name: Make application.yml  # application.yml 파일 생성
+        run: |
+          cd ./src/main/resources
+          echo "${{ secrets.APPLICATION_YML }}" > ./application.yml
+        shell: bash
 
-        - name : Grant execute permission for gradlew
-          run: chmod +x gradles
+      - name: Grant execute permission for gradlew  # gradlew 실행 권한 부여
+        run: chmod +x gradlew
 
-        - name: Build with Gradle  # Gradle을 사용하여 프로젝트 빌드
-          uses: gradle/gradle-build-action@v2
-          with:
-            arguments: build
+      - name: Build with Gradle  # Gradle을 사용하여 프로젝트 빌드
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
 
-        - name: Upload build artifact  # 빌드된 아티팩트 업로드
-          uses: actions/upload-artifact@v3
-          with:
-           name: umc7thServer
-           path: build/libs/*.jar
+      - name: Upload build artifact  # 빌드된 아티팩트 업로드
+        uses: actions/upload-artifact@v3
+        with:
+          name: umc7thServer
+          path: build/libs/*.jar
 
   deploy:
     needs: build  # build 작업이 성공적으로 완료된 후 실행

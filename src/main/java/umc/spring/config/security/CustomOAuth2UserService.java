@@ -28,18 +28,21 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         OAuth2User oAuth2User = super.loadUser(userRequest);
 
-        Map<String, Object> attributes = oAuth2User.getAttributes();
-        Map<String, Object> properties = (Map<String, Object>) attributes.get("properties");
-
         // 카카오 로그인
+//        Map<String, Object> attributes = oAuth2User.getAttributes();
+//        Map<String, Object> properties = (Map<String, Object>) attributes.get("properties");
 //        String nickname = (String) properties.get("nickname");
 //        String email = nickname + "@kakao.com";
 
         // 구글로 로그인
-        String email = oAuth2User.getAttributes().get("email").toString();
-        String nickname = oAuth2User.getAttributes().get("name").toString();
-//        String email = (String) properties.get("email");
-//        String nickname = (String) properties.get("name");
+//        String email = oAuth2User.getAttributes().get("email").toString();
+//        String nickname = oAuth2User.getAttributes().get("name").toString();
+
+        // 네이버로 로그인
+        Map<String, Object> attributes = oAuth2User.getAttributes();
+        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
+        String email = (String) response.get("email");
+        String nickname = (String) response.get("nickname");
         Member member = saveOrUpdateUser(email,nickname);
 
         Map<String, Object> modifiedAttributes = new HashMap<>(attributes);

@@ -3,14 +3,14 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="9bbe009a-1f18-4298-b0a2-d56891b731c9" name="UMC7">
-        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="43.203.118.82" port="22" sshConfigId="6a2ce399-231e-4054-8824-41a76e856abb" sshConfig="ubuntu@43.203.118.82:22 key" keyPair="true">
+        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="15.164.93.221" port="22" sshConfigId="6a2ce399-231e-4054-8824-41a76e856abb" sshConfig="ubuntu@15.164.93.221:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
       <webServer id="b42d86d1-3a54-4f5a-b334-5a264e30f851" name="umc7th_week11">
-        <fileTransfer accessType="SFTP" host="43.203.118.82" port="22" sshConfigId="6a2ce399-231e-4054-8824-41a76e856abb" sshConfig="ubuntu@43.203.118.82:22 key" keyPair="true">
+        <fileTransfer accessType="SFTP" host="15.164.93.221" port="22" sshConfigId="6a2ce399-231e-4054-8824-41a76e856abb" sshConfig="ubuntu@15.164.93.221:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

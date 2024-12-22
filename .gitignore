@@ -24,6 +24,7 @@ application.yml
 *.iml
 *.ipr
 out/
+out/production/resources/application.yml
 !**/src/main/**/out/
 !**/src/test/**/out/
 

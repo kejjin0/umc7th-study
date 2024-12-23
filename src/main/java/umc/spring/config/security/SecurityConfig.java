@@ -14,10 +14,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilteChain(HttpSecurity http) throws Exception {
         http
+                .csrf(csrf->csrf.disable())
                 .authorizeRequests((request)->request
                         .requestMatchers("/", "/home", "/signup", "/members/signup", "/css/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
+//                        .requestMatchers("/swagger-ui/**",
+//                                "v3/api-docs/**",
+//                                "/swagger-resources/**").permitAll()
+//                        .requestMatchers("/api/**").permitAll()
+                        .anyRequest().permitAll()
                 )
                 .formLogin((form)-> form
                         .loginPage("/login")
